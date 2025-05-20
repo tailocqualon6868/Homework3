@@ -1,0 +1,181 @@
+/* Thiết lập box-sizing: border-box cho toàn bộ trang */
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Các biến CSS của bạn */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-light: #f8f9fa;
+    --background-dark: #343a40;
+    --text-color-light: #f8f9fa;
+    --text-color-dark: #212529;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; /* Đảm bảo không có lề mặc định của body */
+    padding: 0; /* Đảm bảo không có padding mặc định của body */
+    background-color: var(--background-light);
+    color: var(--text-color-dark);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    padding: 1.5em 0; /* Padding trên dưới 1.5em, trái phải 0 */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0; /* Reset margin mặc định của ul */
+    padding: 0; /* Reset padding mặc định của ul */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    padding: 0.8em 1.5em; /* Padding tạo không gian xung quanh chữ */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+nav ul li a:hover,
+nav ul li a:focus { /* Đảm bảo hover và focus có cùng hiệu ứng */
+    background-color: var(--primary-color); /* Màu xanh chính khi hover/focus */
+    transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ lên */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng khi hover */
+}
+
+/* Kiểu cho liên kết trang hiện tại (nếu bạn muốn) */
+/* Bạn sẽ cần thêm class 'active' vào thẻ <a> của trang hiện tại trong HTML */
+/* Ví dụ: <li class="active"><a href="page1.html">Home</a></li> */
+nav ul li.active a {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+
+main {
+    padding: 2em; /* Tăng padding cho nội dung chính */
+    max-width: 960px; /* Giới hạn chiều rộng nội dung để dễ đọc */
+    margin: 2em auto; /* Căn giữa nội dung chính */
+    background-color: white; /* Nền trắng cho nội dung */
+    border-radius: 8px; /* Bo tròn góc */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Đổ bóng mềm mại */
+}
+
+h1 {
+    color: var(--primary-color); /* Màu xanh chính cho tiêu đề */
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 1em;
+    font-size: 2.5em; /* Kích thước lớn hơn */
+    letter-spacing: 1px;
+}
+
+p {
+    margin-bottom: 1em;
+    color: rgb(255, 255, 255);
+}
+
+/* Cải thiện hình ảnh */
+img {
+    display: block; /* Để có thể căn giữa */
+    max-width: 100%; /* Đảm bảo hình ảnh không tràn ra ngoài */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    border: 5px solid var(--primary-color); /* Viền màu xanh chính */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 1.5em auto; /* Căn giữa hình ảnh */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Đổ bóng cho hình ảnh */
+    transition: transform 0.3s ease; /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+img:hover {
+    transform: scale(1.02);
+}
+
+/* Cải thiện lưới hình ảnh (page2.html) */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Điều chỉnh kích thước cột */
+    gap: 25px; /* Tăng khoảng cách */
+    padding: 1em;
+    background-color: var(--background-light); /* Nền nhẹ cho lưới ảnh */
+    border-radius: 8px;
+    margin-top: 2em;
+}
+
+.image-grid img { /* Đảm bảo style img chung vẫn áp dụng nhưng có thể override nếu cần */
+    border: 3px solid var(--secondary-color); /* Viền khác cho ảnh trong grid */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Cải thiện container flex (page3.html) */
+.flex-container {
+    display: flex;
+    justify-content: center; /* Căn giữa các phần tử con theo chiều ngang (trục chính) */
+    align-items: center; /* Căn giữa các phần tử con theo chiều dọc (trục cross) */
+    min-height: 300px; /* Đảm bảo container có đủ chiều cao để thấy hiệu ứng căn giữa dọc */
+    background-color: var(--background-light);
+    border-radius: 8px;
+    padding: 1em;
+    gap: 20px; /* Khoảng cách giữa các phần tử con (nếu có nhiều hơn 1) */
+    flex-wrap: wrap; /* Cho phép các phần tử con xuống dòng nếu không đủ chỗ */
+}
+
+/* Đảm bảo hình ảnh trong flex container cũng responsive */
+.flex-container img {
+    max-width: 100%; /* Đảm bảo hình ảnh không tràn ra ngoài container */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* Kiểu cho liên kết "Skip to Main Content" */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
+}
+
+.skip-link:focus {
+    position: fixed; /* Hoặc static tùy theo ý bạn */
+    top: 10px;
+    left: 10px;
+    width: auto;
+    height: auto;
+    padding: 0.8em 1.5em; /* Tăng padding */
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition: background-color 0.3s ease, top 0.3s ease;
+}
+footer {
+    background-color: var(--background-dark); /* Nền tối */
+    color: var(--text-color-light); /* Chữ sáng */
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 3em; /* Khoảng cách với nội dung chính */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* Đổ bóng lên trên */
+}
